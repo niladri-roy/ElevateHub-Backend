@@ -7,5 +7,5 @@ router.get('/', productController.getAllProducts)
 router.get('/:id', productController.getProductById)
 router.delete('/:id', productController.deleteProduct)
 
-console.log("Product Route -> Working Good")
+console.log("hi Product Route -> Working Good")
 module.exports = router;
