@@ -51,23 +51,37 @@ const getProductById = async (req, res, next) => {
 
 // Delete a Product by ID
 const deleteProduct = async (req, res, next) => {
-  try {
-    const Product = await Product.findByIdAndDelete(req.params.id);
-    if (!Product) {
-      return res.status(404).json({
-        error: "Product not found",
-      });
-    }
-    res.status(200).json({
-      status: 'success',
-      message: 'Product Deleted',
-    });
-  } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      message: error,
+  // try {
+  //   const Product = await Product.findByIdAndDelete(req.params.id);
+  //   if (!Product) {
+  //     return res.status(404).json({
+  //       error: "Product not found",
+  //     });
+  //   }
+  //   res.status(200).json({
+  //     status: 'success',
+  //     message: 'Product Deleted',
+  //   });
+  // } catch (error) {
+  //   res.status(400).json({
+  //     status: 'fail',
+  //     message: error,
+  //   });
+  // }
+
+  const product = await Product.findByIdAndDelete(req.params.id);
+  if(!product){
+    return res.status(404).json({
+      error: "Product not found",
     });
   }
+
+  // await product.delete()
+
+  res.status(200).json({
+    success: true,
+    message: 'Product Deleted',
+  })
 };
 
 console.log("Product Controller -> Working Good");
