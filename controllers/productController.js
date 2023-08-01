@@ -76,8 +76,6 @@ const deleteProduct = async (req, res, next) => {
     });
   }
 
-  // await product.delete()
-
   res.status(200).json({
     success: true,
     message: 'Product Deleted',
