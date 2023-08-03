@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /*
-make product schema for this properties
+make product schema for this properties (for now) {latter we will add more properties -> mongoDB Schema up-gradation}
 name
 description
 price
