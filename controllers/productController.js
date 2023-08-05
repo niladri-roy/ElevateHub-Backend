@@ -31,20 +31,14 @@ const getAllProducts = async (req, res, next) => {
 
 // Get a Single Product by its ID
 const getProductById = async (req, res, next) => {
-  try {
-    const Product = await Product.findById(req.params.id);
-    if (!Product) {
+  const Product = await Product.findById(req.params.id);
+    if (!product) {
       return res.status(404).json({
-        error: "Product not found",
+        error: 'Product not found',
       });
     }
+
     res.status(200).json(Product);
-  } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      message: error,
-    });
-  }
 };
 
 // Update a Product by ID
