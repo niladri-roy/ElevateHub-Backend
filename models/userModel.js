@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     },
     answer: {
       type: String,
-      default: "Olympus",
+      required: true,
     },
     role: {
       type: Number,
