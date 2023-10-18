@@ -228,7 +228,7 @@ const getAllOrdersController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error WHile Getting Orders",
+      message: "Error While Getting Orders",
       error,
     });
   }
