@@ -1,6 +1,5 @@
-const userModel  = require("../models/userModel");
-const orderModel  = require("../models/orderModel");
-
+const userModel = require("../models/userModel");
+const orderModel = require("../models/orderModel");
 const {
   comparePassword,
   hashPassword,
@@ -30,9 +29,9 @@ const registerController = async (req, res) => {
       return res.send({ message: "Answer is Required" });
     }
     //check user
-    const existingUser = await userModel.findOne({ email });
-    //existing user
-    if (existingUser) {
+    const exisitingUser = await userModel.findOne({ email });
+    //exisiting user
+    if (exisitingUser) {
       return res.status(200).send({
         success: false,
         message: "Already Register please login",
@@ -81,7 +80,7 @@ const loginController = async (req, res) => {
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Email is not Registered",
+        message: "Email is not registerd",
       });
     }
     const match = await comparePassword(password, user.password);
@@ -117,6 +116,8 @@ const loginController = async (req, res) => {
     });
   }
 };
+
+//forgotPasswordController
 
 const forgotPasswordController = async (req, res) => {
   try {
@@ -155,6 +156,7 @@ const forgotPasswordController = async (req, res) => {
   }
 };
 
+//test controller
 const testController = (req, res) => {
   try {
     res.send("Protected Routes");
@@ -164,6 +166,7 @@ const testController = (req, res) => {
   }
 };
 
+//update profile
 const updateProfileController = async (req, res) => {
   try {
     const { name, /*email,*/ password, address, phone } = req.body;
@@ -255,12 +258,11 @@ const orderStatusController = async (req, res) => {
   }
 };
 
-
-module.exports = {
+module.exports ={
   registerController,
   loginController,
-  testController,
   forgotPasswordController,
+  testController,
   updateProfileController,
   getOrdersController,
   getAllOrdersController,
